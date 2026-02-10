@@ -14,6 +14,8 @@ A full-stack in-browser ZK proof verifier. Compiles a [R0VM](https://dev.risczer
 
 ## ⭐ hypergrid
 
+![Hypergrid](./hypergrid/hypergrid_header.png)
+
 An interactive personal site concept built with SvelteKit and Three.js. You roll a coloured cube across an 8×8 chess-style grid using arrow keys. Landing on highlighted tiles reveals content panels (blog posts, reading lists). Features smooth pivot-point roll animations with eased quaternion interpolation, per-face materials, and a responsive split-screen layout.
 
 ![Hypergrid](./hypergrid/hypergrid.png)
