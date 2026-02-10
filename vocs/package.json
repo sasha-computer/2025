@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm build:vocs && pnpm build:create-vocs",
+    "build:vocs": "rimraf src/_lib src/tsconfig.build.* && tsc -p tsconfig.build.json && tsx scripts/postbuild.ts",
+    "build:create-vocs": "rimraf create-vocs/_lib && tsc -p create-vocs/tsconfig.build.json",
+    "changeset": "changeset",
+    "changeset:publish": "tsx scripts/prepublish.ts && pnpm build && changeset publish",
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "check": "biome check . --write --unsafe",
+    "check:deps": "pnpx taze -r",
+    "check:types": "tsc --noEmit",
+    "docs:dev": "node --import tsx/esm ./src/cli/index.ts dev",
+    "docs:build": "NODE_ENV=production node --import tsx/esm ./src/cli/index.ts build",
+    "docs:search-index": "NODE_ENV=production node --import tsx/esm ./src/cli/index.ts search-index",
+    "docs:twoslash": "NODE_ENV=production node --import tsx/esm ./src/cli/index.ts twoslash",
+    "docs:preview": "node --import tsx/esm ./src/cli/index.ts preview",
+    "playground": "pnpm --filter playgrounds/default dev",
+    "preconstruct": "tsx scripts/preconstruct.ts",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.27.12",
+    "@types/compression": "^1.7.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.17.19",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@types/serve-static": "^1.15.7",
+    "@vercel/og": "^0.5.20",
+    "globby": "^13.2.2",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "rimraf": "^5.0.10",
+    "simple-git-hooks": "^2.11.1",
+    "tsx": "^4.19.2",
+    "typescript": "catalog:",
+    "vercel": "^32.7.2",
+    "viem": "^2.23.2",
+    "vocs": "workspace:*"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm check"
+  },
+  "packageManager": "pnpm@9.15.5",
+  "engines": {
+    "node": ">=20"
+  }
+}
