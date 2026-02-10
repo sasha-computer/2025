@@ -6,6 +6,8 @@ Monorepo for my 2025 projects.
 
 A full-stack in-browser ZK proof verifier. Compiles a [R0VM](https://dev.risczero.com/api/zkvm/quickstart) Rust verifier to WebAssembly via `wasm-pack` and serves it through a Next.js app. The demo calculates the 1,000,000th Fibonacci number — then verifies a ZK proof of that computation directly in the browser, in a fraction of the time it takes to calculate it from scratch. Includes a [video walkthrough](https://www.youtube.com/watch?v=aTCPCf8ff-c).
 
+[![Watch the video walkthrough](./browser-verifier/web/public/thumbnail.png)](https://www.youtube.com/watch?v=aTCPCf8ff-c)
+
 **Stack:** Rust · R0VM · wasm-pack · WebAssembly · Next.js
 
 → [browse code](./browser-verifier)
